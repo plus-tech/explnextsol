@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+//
+// Dropdown menu
+
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import Logo from './component/img/designsol.png';
+
+//
+// import the router used for this app.
+import AppRouter from "./component/navigation/RouterComponent";
+
+import DropdownMenu from "./component/navigation/DropdownMenu";
+import {
+  ChakraProvider,
+  theme as chakraTheme,
+  Container,
+  Box,
+} from '@chakra-ui/react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={chakraTheme}>
+      <BrowserRouter>
+        <Container maxW="100%" centerContent>
+          <Box id="outerBox">
+            <DropdownMenu />
+            <AppRouter />
+          </Box>
+        </Container >
+      </BrowserRouter>
+    </ChakraProvider>
   );
 }
 
 export default App;
+/*
+  <div className="container" id="containerDiv">
+
+    <DropdownMenu />
+    <AppRouter />
+
+  </div>
+  */

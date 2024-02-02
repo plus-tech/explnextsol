@@ -1,3 +1,48 @@
+/* smartphones
+*/
+@media only screen and (min-width: 320px) and (max-width: 700px){
+  /* div for pages
+  */
+  #homePage, #microservicePage, #awsPage, #javaeePage, #penthaoPage,
+  #oraclePage, #tableauPage, #pythonPage, #aboutPage {
+    width: auto;
+    height: auto;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 1em;
+    background-color: white;
+  }
+  /* div holding the dropdown menu
+  */
+  #divMenu {
+    margin-left: 1.03em;
+    float: left;
+  }
+}
+
+/* tablet and PC
+*/
+@media only screen and (min-width: 701px){
+  /* div for pages
+  */
+  #homePage, #microservicePage, #awsPage, #javaeePage, #penthaoPage,
+  #oraclePage, #tableauPage, #pythonPage, #aboutPage {
+    width: auto;
+    height: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 2em;
+    background-color: white;
+  }
+  /* div holding the dropdown menu
+  */
+  #divMenu {
+    margin-left: 20%;
+    float: left;
+  }
+}
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +80,114 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/*
+  following are page related items
+*/
+
+#root {
+  background: linear-gradient(
+    /*to bottom, #c8e7f2 0%, #d6ecf4 10%, #e5f2f7 30%, #c0e1ee 30%, #c0e1ee*/
+    to bottom, #bce4d8 0%, #d6ecf4 10%, #e5f2f7 30%, #a1d5d2 30%, #a1d5d2
+  );
+  width: 100%;
+  height: 100%;
+}
+
+/* heading
+*/
+h2, h3{
+    text-align: center;
+    font-weight: bold;
+}
+
+/* paragraph
+*/
+p {
+  font-size: 10;
+  color: black;
+  text-indent: 10px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* list
+*/
+ul.listInPage{
+  list-style-position: outside;
+  list-style-type: circle;
+  margin-left: 15px;
+  padding-left: 15px;
+}
+
+/* Grand Canyon photo in About page
+*/
+#grandCanyon {
+  border-style: solid ;
+  border-width: 1px;
+  border-color: blue transparent;
+  padding: 1px;
+  border-radius: 8px;
+  width: 100%;
+  height:100%;
+  margin-left: -5px;
+  margin-right: 5px;
+}
+
+/* format diagrams in the pages
+*/
+#conceptualDiag, #nLayerDiag,
+#legaSysDiag, #myHomepageArch,
+#kettleArch, #oracleDWHArch,
+#awsArch
+{
+  margin-left: 5px;
+  width: 100%;
+  height: auto;
+}
+
+/* format elements in contact pages, a legacy part
+*/
+#leaveMessage{
+  margin-left: 5px;
+}
+
+table th.hidden{
+  display: none;
+}
+
+#ContactMessage {
+  /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 5px;
+}
+
+#ContactMessage td, #ContactMessage th {
+  border: 1px solid #ddd;
+  padding: 1px;
+}
+
+#ContactMessage tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#ContactMessage tr:hover,
+#AddMessage tr:hover,
+#EditMessage tr:hover
+{
+  background-color: #ddd;
+}
+
+#ContactMessage th {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  background-color: #b9ddf1;
+  color: black;
+}
+
+textarea{
+  rows:10;
 }
