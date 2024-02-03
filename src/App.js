@@ -33,11 +33,3 @@ function App() {
 }
 
 export default App;
-/*
-  <div className="container" id="containerDiv">
-
-    <DropdownMenu />
-    <AppRouter />
-
-  </div>
-  */

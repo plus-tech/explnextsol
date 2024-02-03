@@ -69,19 +69,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-#################################
-###  Other packages required  ###
-#################################
+###  Other packages required
 
 ### `npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion`
 ### `npm i @chakra-ui/icons`
-Install Chakra UI libraries
+Chakra UI components and icons are used in this website.
 
 ### `npm i -s react-router-dom`
 Install react-router-dom package used to navigate web pages
 
 ### `npm i @tableau/embedding-api`
-Install Tableau Embedding API library. A Tableau viz is embedding in this website.
+Install Tableau Embedding API library. A Tableau viz is embedding in the app.
 
 ### `npm install axios`
-Install axios providing access to REST APIs. This is a legacy part. I built a backend app on Beanstalk providing APIs for this frontend client for the purpose of trying the architecture on Amazon Web Service.
+Install axios providing access to REST APIs. This is a legacy part. I built a backend app on Beanstalk providing APIs for this frontend client for the purpose of trying the architecture on Amazon Web Services.

@@ -21,14 +21,15 @@ class AboutComponent extends Component {
                       I feel inspired when I see the sun rising in the morning.
                       </p>
                       <p>
-                      I am a technology enthusiast. I enjoy the process of
-                      creating technical things. Technology is evolving at
-                      a dramatical pace nowadays. They basically come with
-                      a great deal of documentation, making learning effort
-                      consuming. I found learning by scanning efficient in
-                      practice, starting with scanning to gain the concept,
-                      then, scoping and detailing the further learning through
-                      scanning or reading, and repeating the process until satisfied.
+                      I am enthusiastic about technology. I enjoy the process
+                      of creating technical things. Technology is evolving at
+                      a dramatical pace nowadays. They come with a great deal
+                      of documentation, making learning effort consuming. I
+                      found "learn by scanning" efficient in practice, starting
+                      with scanning to gain the concept, then, scoping and
+                      detailing the further learning according to the actual
+                      needs through scanning or reading, and repeating the
+                      process till satisfied.
                       </p>
                       <p>
                       I like sports. Usually I work out, jog, hike etc. They are
@@ -38,7 +39,7 @@ class AboutComponent extends Component {
                       <p>
                       The source code of this website is available at &nbsp;
                       <Link href={repositoryURL} color="blue" isExternal>
-                        Git Repository <ExternalLinkIcon mx='2px' />
+                        Git <ExternalLinkIcon mx='2px' />
                       </Link>.
                       </p>
                       <br />
