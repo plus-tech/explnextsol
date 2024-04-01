@@ -1,4 +1,4 @@
-import Logo from '../img/designsol.png';
+/*import Logo from '../img/designsol.png';*/
 
 import {
   Menu,
@@ -13,6 +13,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 
 const blogURL = "http://plus-tec.blogspot.com/";
 const tableauURL = "https://public.tableau.com/profile/jian#!/";
+const githubURL = "https://github.com/plus-tech/";
 
 function DropdownMenu(){
   return (
@@ -41,7 +42,12 @@ function DropdownMenu(){
         </MenuItem>
         <MenuItem >
           <Link href={tableauURL} color="blue" isExternal>
-            Tableau Public Profile
+            Tableau Public
+          </Link>
+        </MenuItem>
+        <MenuItem >
+          <Link href={githubURL} color="blue" isExternal>
+            GitHub
           </Link>
         </MenuItem>
       </MenuList>

@@ -1,12 +1,8 @@
-//
-// Dropdown menu
-
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import Logo from './component/img/designsol.png';
 
 //
 // import the router used for this app.
+import { BrowserRouter } from 'react-router-dom';
 import AppRouter from "./component/navigation/RouterComponent";
 
 import DropdownMenu from "./component/navigation/DropdownMenu";

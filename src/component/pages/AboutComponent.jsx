@@ -39,7 +39,7 @@ class AboutComponent extends Component {
                       <p>
                       The source code of this website is available at &nbsp;
                       <Link href={repositoryURL} color="blue" isExternal>
-                        Git <ExternalLinkIcon mx='2px' />
+                        GitHub <ExternalLinkIcon mx='2px' />
                       </Link>.
                       </p>
                       <br />
