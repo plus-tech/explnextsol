@@ -6,7 +6,7 @@ import TableauVizComponent from "../js/tableauviz.js";
 import { Link } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
-const publicURL = "https://public.tableau.com/profile/jian#!/";
+const publicURL = "https://public.tableau.com/app/profile/plustech";
 
 class TableauComponent extends Component {
     render() {

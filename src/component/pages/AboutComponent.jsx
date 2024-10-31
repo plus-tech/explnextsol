@@ -17,7 +17,7 @@ class AboutComponent extends Component {
                     <hr />
                     <section>
                       <p>
-                      My name is Jian Wang. Being alive is so appreciated.
+                      My name is Oh Ken. Being alive is so appreciated.
                       I feel inspired when I see the sun rising in the morning.
                       </p>
                       <p>

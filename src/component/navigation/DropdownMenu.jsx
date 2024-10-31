@@ -12,7 +12,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 const blogURL = "http://plus-tec.blogspot.com/";
-const tableauURL = "https://public.tableau.com/profile/jian#!/";
+const tableauURL = "https://public.tableau.com/app/profile/plustech";
 const githubURL = "https://github.com/plus-tech/";
 
 function DropdownMenu(){
@@ -30,7 +30,7 @@ function DropdownMenu(){
         <MenuItem as='a' href="/aws">    Cloud - AWS</MenuItem>
         <MenuItem as='a' href="/javaee"> App   - Java EE</MenuItem>
         <MenuItem as='a' href="/pentaho">ETL   - Pentaho</MenuItem>
-        <MenuItem as='a' href="/pentaho">DB    - Oracle</MenuItem>
+        <MenuItem as='a' href="/oracle">DB    - Oracle</MenuItem>
         <MenuItem as='a' href="/tableau">BI    - Tableau</MenuItem>
         <MenuItem as='a' href="/python"> ML    - Python</MenuItem>
         <MenuItem as='a' href="/about">  About</MenuItem>

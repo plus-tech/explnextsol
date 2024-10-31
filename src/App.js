@@ -18,7 +18,7 @@ function App() {
     <ChakraProvider theme={chakraTheme}>
       <BrowserRouter>
         <Container maxW="100%" centerContent>
-          <Box id="outerBox">
+          <Box id="outerBox" mb='1em'>
             <DropdownMenu />
             <AppRouter />
           </Box>
