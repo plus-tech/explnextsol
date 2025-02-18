@@ -1,20 +1,15 @@
 //
 // Embed a Tablea viz published on Tableau Public
 
-import React, { Component } from 'react';
+import * as React from 'react';
+import {VizURL} from '../../common/constant.js';
 
 import {
   TableauEventType,
-}from '@tableau/embedding-api';
+} from '@tableau/embedding-api';
 
-const vizURL = "https://public.tableau.com/views/AQuickGuideToReferencesForTableau/Main";
-
-class TableauVizComponent extends Component{
-  componentDidMount() {
-    this.initializeViz();
-  }
-
-  initializeViz() {
+function TableauVizComponent(){
+  React.useEffect( () => {
     const viz = document.getElementById("tableauViz");
     viz.hideTabs = true;
     viz.hideToolbar = true;
@@ -23,15 +18,17 @@ class TableauVizComponent extends Component{
     };
 
     viz.addEventListener(TableauEventType.FirstInteractive, onFirstInteractive);
-    viz.src = vizURL;
-  }
+    viz.src = VizURL;
 
-  render() {
-    return (
-      <tableau-viz id="tableauViz">
-      </tableau-viz>
-    )
-  }
+    return () => {
+      viz.removeEventListener(TableauEventType.FirstInteractive, onFirstInteractive);
+    }
+  }, []);
+
+  return (
+    <tableau-viz id="tableauViz">
+    </tableau-viz>
+  )
 }
 
 export default TableauVizComponent;

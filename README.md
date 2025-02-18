@@ -73,13 +73,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### `npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion`
 ### `npm i @chakra-ui/icons`
-Chakra UI components and icons are used in this website.
+Chakra UI components and icons are used in this app.
 
 ### `npm i -s react-router-dom`
-Install react-router-dom package used to navigate web pages
+Install react-router-dom package, used for navigation.
 
 ### `npm i @tableau/embedding-api`
-Install Tableau Embedding API library. A Tableau viz is embedding in the app.
+Install Tableau Embedding API library. A Tableau viz is embedded in the app.
 
 ### `npm install axios`
-Install axios providing access to REST APIs. This is a legacy part. I built a backend app on Beanstalk providing APIs for this frontend client for the purpose of trying the architecture on Amazon Web Services.
+Install axios which provides access to REST APIs. A backend app was built on Beanstalk that published REST APIs; this frontend app calls them to persist data. The purpose is to try the architecture on Amazon Web Services. This is a legacy part. Neither the Beanstalk app nor the RDS is available as of now.

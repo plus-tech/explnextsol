@@ -1,90 +1,68 @@
-import React, { Component } from 'react'
-import ApiService from "../../service/ApiService";
+import * as React from 'react';
+import {useNavigate} from "react-router-dom";
 
-class AddCmessageComponent extends Component{
+import {apiAddCmsg} from "../../service/ApiService";
+import {MenuItemPath} from "../../common/constant.js";
 
-    constructor(props){
-        super(props);
-        this.state ={
-            firstName: '',
-            lastName: '',
-            email: '',
-            cmessage: '',
-            cdate: '',
-            message: null
-        }
-        this.saveCmessage = this.saveCmessage.bind(this);
-    }
 
-    saveCmessage = (e) => {
-        e.preventDefault();
-        let cmessage = {firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email, cmessage: this.state.cmessage, cdate: this.state.cdate};
-        ApiService.addCmessage(cmessage)
-            .then(res => {
-                this.setState({message : 'Message added successfully.'});
-                this.props.history.push('/cmessages');
-            });
-    }
+export default function AddCmessageComponent() {
+  const navigate = useNavigate();
 
-    onChange = (e) =>
-        this.setState({ [e.target.name]: e.target.value });
+  const [cmsg, setCmsg] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    cmessage: '',
+    cdate: '',
+    message: null
+  });
 
-    render() {
-        return(
-            <div>
-                <h3 className="text-center">Add a Message</h3>
-                <br />
-                <hr />
-                <form>
+  const saveCmessage = (e) => {
+    e.preventDefault();
+    apiAddCmsg(cmsg)
+      .then(res => {
+          setCmsg({...cmsg, message: 'Message added successfully.'});
+      });
+    //
+    // navigate back to View Messages
+    navigate(MenuItemPath.viewcmsg);
+  }
 
-                  <table id="AddMessage" className="table table-striped">
-                    <tr>
-                    <td><label>First Name</label></td>
-                    <td><input type="text" placeholder="firstName" name="firstName" className="form-control" value={this.state.firstName} onChange={this.onChange}/></td>
-                    </tr>
-                    <tr>
-                    <td><label>Last Name</label></td>
-                    <td><input type="text" placeholder="lastName" name="lastName" className="form-control" value={this.state.lastName} onChange={this.onChange}/></td>
-                    </tr>
-                    <tr>
-                    <td><label>Email</label></td>
-                    <td><input type="text" placeholder="email" name="email" className="form-control" value={this.state.email} onChange={this.onChange}/></td>
-                    </tr>
-                    <tr>
-                    <td><label>Message</label></td>
-                    <td><input type="textarea" placeholder="cmessage" name="cmessage" className="form-control" value={this.state.cmessage} onChange={this.onChange}/></td>
-                    </tr>
-                    <tr>
-                    <td><label>&nbsp;</label></td>
-                    <td><button className="btn btn-success" onClick={this.saveCmessage}>Save</button></td>
-                    </tr>
-                  </table>
-              </form>
-            </div>
-        );
-    }
+  const onChange = (e) => {
+    setCmsg({...cmsg, [e.target.name]: e.target.value });
+  }
+
+  return(
+    <div className="toplevelpage">
+      <h3 className="text-center">Drop a Message</h3>
+      <br />
+      <hr />
+      <form>
+        <table id="AddMessage" className="table table-striped">
+          <tbody>
+            <tr>
+              <td><label>First Name</label></td>
+              <td><input type="text" placeholder="firstName" name="firstName" className="form-control" value={cmsg.firstName} onChange={onChange}/></td>
+            </tr>
+            <tr>
+              <td><label>Last Name</label></td>
+              <td><input type="text" placeholder="lastName" name="lastName" className="form-control" value={cmsg.lastName} onChange={onChange}/></td>
+            </tr>
+            <tr>
+              <td><label>Email</label></td>
+              <td><input type="text" placeholder="email" name="email" className="form-control" value={cmsg.email} onChange={onChange}/></td>
+            </tr>
+            <tr>
+              <td><label>Message</label></td>
+              <td><input type="textarea" placeholder="cmessage" name="cmessage" className="form-control" value={cmsg.cmessage} onChange={onChange}/></td>
+            </tr>
+            <tr>
+              <td><label>&nbsp;</label></td>
+              <td><button className="btn btn-success" onClick={saveCmessage}>Save</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  );
 }
-
-export default AddCmessageComponent;
-
-/*
-<div className="form-group">
-    <label>First Name:</label>
-    <input type="text" placeholder="firstName" name="firstName" className="form-control" value={this.state.firstName} onChange={this.onChange}/>
-</div>
-
-<div className="form-group">
-    <label>Last Name:</label>
-    <input type="text" placeholder="lastName" name="lastName" className="form-control" value={this.state.lastName} onChange={this.onChange}/>
-</div>
-
-<div className="form-group">
-    <label>Email:</label>
-    <input type="text" placeholder="email" name="email" className="form-control" value={this.state.email} onChange={this.onChange}/>
-</div>
-
-<div className="form-group">
-    <label>Message:</label>
-    <input type="textarea" placeholder="cmessage" name="cmessage" className="form-control" value={this.state.cmessage} onChange={this.onChange}/>
-</div>
-*/

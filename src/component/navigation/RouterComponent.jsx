@@ -1,11 +1,12 @@
 //
 // Page navigation
 
-import React from 'react';
 import {
   Route,
   Routes,
 } from 'react-router-dom'
+
+import {MenuItemPath} from "../../common/constant.js";
 
 import ListCmessageComponent from "../contact/ListCmessageComponent";
 import AddCmessageComponent from "../contact/AddCmessageComponent";
@@ -22,26 +23,22 @@ import AboutComponent from "../pages/AboutComponent";
 
 const AppRouter = () => {
   return(
-    <div>
-      <div className="col-md-6">
-        <Routes>
-          <Route path="/" exact element={<HomeComponent />} />
-          <Route path="/home" element={<HomeComponent />} />
+      <Routes>
+        <Route path={MenuItemPath.default}      exact element={<HomeComponent />} />
+        <Route path={MenuItemPath.home}         element={<HomeComponent />} />
 
-          <Route path="/javaee" element={<JavaeeComponent />} />
-          <Route path="/pentaho" element={<PentahoComponent />} />
-          <Route path="/oracle" element={<OracleComponent />} />
-          <Route path="/tableau" element={<TableauComponent />} />
-          <Route path="/aws" element={<AwsComponent />} />
-          <Route path="/python" element={<PythonComponent />} />
-          <Route path="/about" element={<AboutComponent />} />
+        <Route path={MenuItemPath.javaee}       element={<JavaeeComponent />} />
+        <Route path={MenuItemPath.pentaho}      element={<PentahoComponent />} />
+        <Route path={MenuItemPath.oracle}       element={<OracleComponent />} />
+        <Route path={MenuItemPath.tableau}      element={<TableauComponent />} />
+        <Route path={MenuItemPath.aws}          element={<AwsComponent />} />
+        <Route path={MenuItemPath.python}       element={<PythonComponent />} />
+        <Route path={MenuItemPath.about}        element={<AboutComponent />} />
 
-          <Route path="/cmessages" element={<ListCmessageComponent />} />
-          <Route path="/addcmessage" element={<AddCmessageComponent />} />
-          <Route path="/editcmessage" element={<EditCmessageComponent />} />
-        </Routes>
-      </div>
-    </div>
+        <Route path={MenuItemPath.viewcmsg}     element={<ListCmessageComponent />} />
+        <Route path={MenuItemPath.addcmsg}      element={<AddCmessageComponent />} />
+        <Route path={MenuItemPath.editcmsg}     element={<EditCmessageComponent />} />
+      </Routes>
   )
 }
 

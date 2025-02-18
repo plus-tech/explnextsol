@@ -1,110 +1,92 @@
-import React, { Component } from 'react'
-import ApiService from "../../service/ApiService";
+import * as React from 'react';
+import {useNavigate} from 'react-router-dom';
 
-class EditCmessageComponent extends Component {
+import {apiFetchCmsgById, apiEditCmsg} from "../../service/ApiService";
+import {MenuItemPath} from "../../common/constant.js";
 
-    constructor(props){
-        super(props);
-        this.state ={
-            id: null,
-            firstName: '',
-            lastName: '',
-            email: '',
-            cmessage: '',
-            cdate: ''
+export default function EditCmessageComponent() {
+  const navigate = useNavigate;
+
+  const [cmsg, setCmsg] = React.useState({
+    id: null,
+    firstName: '',
+    lastName: '',
+    email: '',
+    cmessage: '',
+    cdate: ''
+  });
+
+  React.useEffect( () => {
+    let ignore = false;
+
+    apiFetchCmsgById(window.localStorage.getItem("cmessageId"))
+      .then((response) => {
+        let cmessage = response.data;
+
+        if (!ignore) {
+          setCmsg({...cmsg,
+            id: cmessage.id,
+            firstName: cmessage.firstName,
+            lastName: cmessage.lastName,
+            email: cmessage.email,
+            cmessage: cmessage.cmessage,
+            cdate: cmessage.cdate
+          });
         }
-        this.saveCmessage = this.saveCmessage.bind(this);
-        this.loadCmessage = this.loadCmessage.bind(this);
-    }
+      });
 
-    componentDidMount() {
-        this.loadCmessage();
+    return () => {
+      ignore = true;
     }
+  }, [cmsg]);
 
-    loadCmessage() {
-        ApiService.fetchCmessageById(window.localStorage.getItem("cmessageId"))
-            .then((response) => {
-                let cmessage = response.data;
-                this.setState({
-                id: cmessage.id,
-                firstName: cmessage.firstName,
-                lastName: cmessage.lastName,
-                email: cmessage.email,
-                cmessage: cmessage.cmessage,
-                cdate: cmessage.cdate
-                })
-            });
-    }
+  const onChange = (e) => {
+    setCmsg({...cmsg, [e.target.name]: e.target.value });
+  }
 
-    onChange = (e) =>
-        this.setState({ [e.target.name]: e.target.value });
+  const saveCmessage = (e) => {
+    e.preventDefault();
+    apiEditCmsg(cmsg)
+      .then(res => {
+        setCmsg({...cmsg, message: 'Message added successfully.'});
+      });
+    //
+    // navigate back to View Messages
+    navigate(MenuItemPath.viewcmsg);
+  }
 
-    saveCmessage = (e) => {
-        e.preventDefault();
-        let cmessage = {id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email, cmessage: this.state.cmessage};
-        ApiService.editCmessage(cmessage)
-            .then(res => {
-                this.setState({message : 'Message added successfully.'});
-                this.props.history.push('/cmessages');
-            });
-    }
 
-    render() {
-        return (
-            <div>
-                <h3 className="text-center">Edit the Message</h3>
-                <br />
-                <hr />
-                <form>
-                <table id="EditMessage" className="table table-striped">
-                  <tr>
-                  <td><label>First Name</label></td>
-                  <td><input type="text" placeholder="firstName" name="firstName" className="form-control" defaultValue={this.state.firstName}/></td>
-                  </tr>
-                  <tr>
-                  <td><label>Last Name</label></td>
-                  <td><input placeholder="lastName" name="lastName" className="form-control" value={this.state.lastName} onChange={this.onChange}/></td>
-                  </tr>
-                  <tr>
-                  <td><label>Email</label></td>
-                  <td><input placeholder="email" name="email" className="form-control" value={this.state.email} onChange={this.onChange}/></td>
-                  </tr>
-                  <tr>
-                  <td><label>Message</label></td>
-                  <td><input type="textarea" placeholder="cmessage" name="cmessage" className="form-control" value={this.state.cmessage} onChange={this.onChange}/></td>
-                  </tr>
-                  <tr>
-                  <td><label>&nbsp;</label></td>
-                  <td><button className="btn btn-success" onClick={this.saveCmessage}>Save</button></td>
-                  </tr>
-                </table>
-                </form>
-            </div>
-        );
-    }
+  return (
+    <div className="toplevelpage">
+      <h3 className="text-center">Edit the Message</h3>
+      <br />
+      <hr />
+      <form>
+      <table id="EditMessage" className="table table-striped">
+        <tbody>
+          <tr>
+            <td><label>First Name</label></td>
+            <td><input type="text" placeholder="firstName" name="firstName" className="form-control" defaultValue={cmsg.firstName} onChange={onChange}/></td>
+          </tr>
+          <tr>
+            <td><label>Last Name</label></td>
+            <td><input type="text" placeholder="lastName" name="lastName" className="form-control" value={cmsg.lastName} onChange={onChange}/></td>
+          </tr>
+          <tr>
+            <td><label>Email</label></td>
+            <td><input type="text" placeholder="email" name="email" className="form-control" value={cmsg.email} onChange={onChange}/></td>
+          </tr>
+          <tr>
+            <td><label>Message</label></td>
+            <td><input type="textarea" placeholder="cmessage" name="cmessage" className="form-control" value={cmsg.cmessage} onChange={onChange}/></td>
+          </tr>
+          <tr>
+            <td><label>&nbsp;</label></td>
+            <td><button className="btn btn-success" onClick={saveCmessage}>Save</button></td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+    </div>
+  );
 }
-
-export default EditCmessageComponent;
-
-/*
-<div className="form-group">
-    <label>First Name:</label>
-    <input type="text" placeholder="firstName" name="firstName" className="form-control" defaultValue={this.state.firstName}/>
-</div>
-
-<div className="form-group">
-    <label>Last Name:</label>
-    <input placeholder="lastName" name="lastName" className="form-control" value={this.state.lastName} onChange={this.onChange}/>
-</div>
-
-<div className="form-group">
-    <label>Email:</label>
-    <input placeholder="email" name="email" className="form-control" value={this.state.email} onChange={this.onChange}/>
-</div>
-
-<div className="form-group">
-    <label>Message:</label>
-    <input type="text" placeholder="cmessage" name="cmessage" className="form-control" value={this.state.cmessage} onChange={this.onChange}/>
-</div>
-<button className="btn btn-success" onClick={this.saveCmessage}>Save</button>
-*/

@@ -11,49 +11,53 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
-const blogURL = "http://plus-tec.blogspot.com/";
-const tableauURL = "https://public.tableau.com/app/profile/plustech";
-const githubURL = "https://github.com/plus-tech/";
+import {MenuItemText, MenuItemPath,
+  BlogURL, TableauURL, GithubURL
+} from '../../common/constant.js';
 
-function DropdownMenu(){
+export default function DropdownMenu(){
   return (
     <div id="divMenu">
-    <Menu>
-      <MenuButton
-        as={IconButton}
-        aria-label='Options'
-        icon={<HamburgerIcon />}
-        variant='outline'
-      />
-      <MenuList text-align="justify;">
-        <MenuItem as='a' href="/home">   Home</MenuItem>
-        <MenuItem as='a' href="/aws">    Cloud - AWS</MenuItem>
-        <MenuItem as='a' href="/javaee"> App   - Java EE</MenuItem>
-        <MenuItem as='a' href="/pentaho">ETL   - Pentaho</MenuItem>
-        <MenuItem as='a' href="/oracle">DB    - Oracle</MenuItem>
-        <MenuItem as='a' href="/tableau">BI    - Tableau</MenuItem>
-        <MenuItem as='a' href="/python"> ML    - Python</MenuItem>
-        <MenuItem as='a' href="/about">  About</MenuItem>
-        <MenuDivider />
-        <MenuItem>
-          <Link href={blogURL} color="blue" isExternal>
-            My Blog
-          </Link>
-        </MenuItem>
-        <MenuItem >
-          <Link href={tableauURL} color="blue" isExternal>
-            Tableau Public
-          </Link>
-        </MenuItem>
-        <MenuItem >
-          <Link href={githubURL} color="blue" isExternal>
-            GitHub
-          </Link>
-        </MenuItem>
-      </MenuList>
-    </Menu>
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          aria-label='Options'
+          icon={<HamburgerIcon />}
+          variant='outline'
+        />
+        <MenuList text-align="justify;">
+          <MenuItem as='a' href={MenuItemPath.home}>      {MenuItemText.home}     </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.aws}>       {MenuItemText.aws}      </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.javaee}>    {MenuItemText.javaee}   </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.pentaho}>   {MenuItemText.pentaho}  </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.oracle}>    {MenuItemText.oracle}   </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.tableau}>   {MenuItemText.tableau}  </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.python}>    {MenuItemText.python}   </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.about}>     {MenuItemText.about}    </MenuItem>
+          <MenuDivider />
+          <MenuItem>
+            <Link href={BlogURL} color="blue" isExternal>
+              My Blog
+            </Link>
+          </MenuItem>
+          <MenuItem >
+            <Link href={TableauURL} color="blue" isExternal>
+              Tableau Public
+            </Link>
+          </MenuItem>
+          <MenuItem >
+            <Link href={GithubURL} color="blue" isExternal>
+              GitHub
+            </Link>
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </div>
   )
 }
 
-export default DropdownMenu;
+/*
+<MenuItem as='a' href={MenuItemPath.addcmsg}>   {MenuItemText.addcmsg}  </MenuItem>
+<MenuItem as='a' href={MenuItemPath.editcmsg}>  {MenuItemText.editcmsg} </MenuItem>
+<MenuItem as='a' href={MenuItemPath.viewcmsg}>  {MenuItemText.viewcmsg} </MenuItem>
+*/
