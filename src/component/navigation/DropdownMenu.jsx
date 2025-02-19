@@ -1,6 +1,7 @@
 /*import Logo from '../img/designsol.png';*/
 
 import {
+  Box,
   Menu,
   MenuButton,
   MenuList,
@@ -17,7 +18,7 @@ import {MenuItemText, MenuItemPath,
 
 export default function DropdownMenu(){
   return (
-    <div id="divMenu">
+    <Box className="boxMenu">
       <Menu>
         <MenuButton
           as={IconButton}
@@ -35,6 +36,7 @@ export default function DropdownMenu(){
           <MenuItem as='a' href={MenuItemPath.python}>    {MenuItemText.python}   </MenuItem>
           <MenuItem as='a' href={MenuItemPath.about}>     {MenuItemText.about}    </MenuItem>
           <MenuDivider />
+
           <MenuItem>
             <Link href={BlogURL} color="blue" isExternal>
               My Blog
@@ -52,7 +54,7 @@ export default function DropdownMenu(){
           </MenuItem>
         </MenuList>
       </Menu>
-    </div>
+    </Box>
   )
 }
 

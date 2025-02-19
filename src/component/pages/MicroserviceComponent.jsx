@@ -1,22 +1,24 @@
 //
 // Page of Microsevice, not used at this poing in time
-
+import {
+  Box,
+  Divider,
+  Heading,
+  Text,
+} from '@chakra-ui/react';
 
 function MicroserviceComponent() {
   return (
-    <div id="microservicePage">
-      <h3 className="text-center">Microservice</h3>
-      <br />
-      <hr />
-      <section>
-        <p>Pentaho
-
-        </p>
-        <p><b>For Enterprise</b></p>
-        <p>
-        </p>
-      </section>
-    </div>
+    <Box className="boxToplevelpage">
+      <Heading as='h3' size='md'>
+        Microservice
+      </Heading>
+      <br/>
+      <Divider />
+      <Text className="txtParagraph">
+        For Enterprise
+      </Text>
+    </Box>
   );
 }
 

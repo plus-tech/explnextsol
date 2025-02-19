@@ -1,6 +1,22 @@
 import * as React from 'react';
 import {useNavigate} from 'react-router-dom';
 
+import {
+  Box,
+  Divider,
+  Heading,
+  FormControl,
+  FormLabel,
+  Table,
+  TableContainer,
+  Tr,
+  Td,
+  Tbody,
+  Input,
+  Textarea,
+  Button,
+} from '@chakra-ui/react';
+
 import {apiFetchCmsgById, apiEditCmsg} from "../../service/ApiService";
 import {MenuItemPath} from "../../common/constant.js";
 
@@ -44,49 +60,69 @@ export default function EditCmessageComponent() {
     setCmsg({...cmsg, [e.target.name]: e.target.value });
   }
 
+  //------------------------------------
+  // need to solve navigation issue
+  //------------------------------------
   const saveCmessage = (e) => {
     e.preventDefault();
+    // let res = await apiEditCmsg(cmsg);
+    // console.log('res: ', res);
+
     apiEditCmsg(cmsg)
       .then(res => {
+        console.log('res: ',res);
         setCmsg({...cmsg, message: 'Message added successfully.'});
       });
-    //
-    // navigate back to View Messages
+
     navigate(MenuItemPath.viewcmsg);
+
+    // apiEditCmsg(cmsg)
+    //   .then(res => {
+    //     setCmsg({...cmsg, message: 'Message added successfully.'});
+    //   });
+    // //
+    // navigate back to View Messages
+    // navigate(MenuItemPath.viewcmsg);
   }
 
 
   return (
-    <div className="toplevelpage">
-      <h3 className="text-center">Edit the Message</h3>
-      <br />
-      <hr />
-      <form>
-      <table id="EditMessage" className="table table-striped">
-        <tbody>
-          <tr>
-            <td><label>First Name</label></td>
-            <td><input type="text" placeholder="firstName" name="firstName" className="form-control" defaultValue={cmsg.firstName} onChange={onChange}/></td>
-          </tr>
-          <tr>
-            <td><label>Last Name</label></td>
-            <td><input type="text" placeholder="lastName" name="lastName" className="form-control" value={cmsg.lastName} onChange={onChange}/></td>
-          </tr>
-          <tr>
-            <td><label>Email</label></td>
-            <td><input type="text" placeholder="email" name="email" className="form-control" value={cmsg.email} onChange={onChange}/></td>
-          </tr>
-          <tr>
-            <td><label>Message</label></td>
-            <td><input type="textarea" placeholder="cmessage" name="cmessage" className="form-control" value={cmsg.cmessage} onChange={onChange}/></td>
-          </tr>
-          <tr>
-            <td><label>&nbsp;</label></td>
-            <td><button className="btn btn-success" onClick={saveCmessage}>Save</button></td>
-          </tr>
-        </tbody>
-      </table>
-      </form>
-    </div>
+    <Box className="boxToplevelpage">
+      <Heading as='h3' size='md'>
+        Edit the Message
+      </Heading>
+      <br/>
+      <Divider />
+
+      <FormControl>
+        <TableContainer>
+          <Table size='sm' variant='unstyled'>
+            <Tbody>
+              <Tr>
+                <Td><FormLabel>First Name</FormLabel></Td>
+                <Td><Input variant='flushed' placeholder="firstName" name="firstName" value={cmsg.firstName} onChange={onChange}/></Td>
+              </Tr>
+              <Tr>
+                <Td><FormLabel>Last Name</FormLabel></Td>
+                <Td><Input variant='flushed' placeholder="lastName" name="lastName" value={cmsg.lastName} onChange={onChange}/></Td>
+              </Tr>
+              <Tr>
+                <Td><FormLabel>Email</FormLabel></Td>
+                <Td><Input variant='flushed' placeholder="email" name="email" value={cmsg.email} onChange={onChange}/></Td>
+              </Tr>
+              <Tr>
+                <Td><FormLabel>Message</FormLabel></Td>
+                <Td><Textarea variant='flushed' placeholder="message" name="cmessage" value={cmsg.cmessage} onChange={onChange}/></Td>
+            </Tr>
+              <Tr>
+              <Td></Td>
+              <Td><Button variant='outline' onClick={saveCmessage}>Save</Button></Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </FormControl>
+
+    </Box>
   );
 }

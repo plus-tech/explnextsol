@@ -1,32 +1,23 @@
 import * as React from 'react';
 import {useNavigate} from "react-router-dom";
+import {
+  Box,
+  Divider,
+  Heading,
+  Text,
+  Table,
+  TableContainer,
+  Thead,
+  Tr,
+  Th,
+  Td,
+  Tbody,
+  ButtonGroup,
+  Button,
+} from '@chakra-ui/react';
 
 import {apiFetchCmsg, apiDeleteCmsg} from "../../service/ApiService";
 import {MenuItemPath} from "../../common/constant.js";
-
-/*
-const [userInfo, setUserInfo] = React.useState(userInfoInitial);
-
-const onChange = (e) =>{
-  setUserInfo({...userInfo, [e.target.name]: e.target.value});
-};
-<form id="regForm" action='/register.php' onSubmit={handleSubmit}>
-  <h1>Register:</h1>
-  { currentTab == 0 &&
-  <div className="tab">Name:
-    <p><input placeholder="First name..." name="fname" value={userInfo.fname}
-      onChange={onChange} />
-    </p>
-  </div>
-  }
-
-  const [userInfo, setUserInfo] = React.useState({
-    email: '',
-    psw: '',
-    pswrepeat: '',
-    remember: 'on',
-  });
-*/
 
 
 export default function ListCmessageComponent() {
@@ -70,48 +61,59 @@ export default function ListCmessageComponent() {
   }
 
   return (
-    <div className="toplevelpage">
-      <h3 className="text-center">Leave a Message</h3>
-      <br />
-      <hr />
-      <p>Please be kindly advised: This is a pilot page calling the REST APIs deployed on Beanstalk.
-      Your message can be viewed, edited or deleted by any other visitor.
-      </p>
-      <button id="addMessage" className="btn btn-danger" onClick={() => addCmessage()}>Add</button>
-      <br /><br />
-      <table id="ContactMessage" className="table table-striped">
-        <thead>
-          <tr>
-            <th className="hidden">Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Message</th>
-            <th>Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            cmsglist && cmsglist.map( cmsg =>
-              <tr key={cmsg.id}>
-                <td>{cmsg.firstName}</td>
-                <td>{cmsg.lastName}</td>
-                <td>{cmsg.email}</td>
-                <td>{cmsg.cmessage}</td>
-                <td>{cmsg.cdate}</td>
-                <td>
-                  <button className="btn btn-success" onClick={() => editCmessage(cmsg.id)}> Edit </button>
-                  <button className="btn btn-success" onClick={() => deleteCmessage(cmsg.id)}> Delete </button>
-                </td>
-              </tr>
-            )
-          }
-        </tbody>
-      </table>
-      <p>
-      Note: The RDS is permanently shut down.
-      </p>
-    </div>
+    <Box className="boxToplevelpage">
+      <Heading as='h3' size='md'>
+        List of Messages
+      </Heading>
+      <br/>
+      <Divider />
+      <Text className="txtParagraph">
+        Please be kindly advised: This is a pilot page calling the REST APIs deployed on Beanstalk.
+        Your message can be viewed, edited or deleted by any other visitor.
+      </Text>
+
+      <Box className="boxMargbtm">
+        <Button variant='outline' onClick={() => addCmessage()}>Add</Button>
+      </Box>
+      <Box className="boxMargbtm">
+        <TableContainer>
+          <Table size='sm' variant='striped'>
+            <Thead>
+              <Tr>
+                <Th className="hidden">Id</Th>
+                <Th>First Name</Th>
+                <Th>Last Name</Th>
+                <Th>Email</Th>
+                <Th>Message</Th>
+                <Th>Date</Th>
+                <Th>Action</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {
+                cmsglist && cmsglist.map( cmsg =>
+                  <Tr key={cmsg.id}>
+                    <Td>{cmsg.firstName}</Td>
+                    <Td>{cmsg.lastName}</Td>
+                    <Td>{cmsg.email}</Td>
+                    <Td>{cmsg.cmessage}</Td>
+                    <Td>{cmsg.cdate}</Td>
+                    <Td>
+                      <ButtonGroup variant='outline' spacing='1'>
+                        <Button onClick={() => editCmessage(cmsg.id)}> Edit </Button>
+                        <Button onClick={() => deleteCmessage(cmsg.id)}> Delete </Button>
+                      </ButtonGroup>
+                    </Td>
+                  </Tr>
+                )
+              }
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Box>
+      <Text className="txtParagraph">
+        Note: The RDS is permanently shut down.
+      </Text>
+    </Box>
   );
 }
