@@ -9,7 +9,6 @@ import DropdownMenu from "./component/navigation/DropdownMenu";
 import {
   ChakraProvider,
   theme as chakraTheme,
-  Container,
   Box,
 } from '@chakra-ui/react';
 
