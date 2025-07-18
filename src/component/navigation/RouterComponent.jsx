@@ -13,7 +13,7 @@ import AddCmessageComponent from "../contact/AddCmessageComponent";
 import EditCmessageComponent from "../contact/EditCmessageComponent";
 
 import HomeComponent from "../pages/HomeComponent";
-import JavaeeComponent from "../pages/JavaeeComponent";
+import JavaComponent from "../pages/JavaComponent";
 import OracleComponent from "../pages/OracleComponent";
 import PentahoComponent from "../pages/PentahoComponent";
 import TableauComponent from "../pages/TableauComponent";
@@ -27,7 +27,7 @@ const AppRouter = () => {
         <Route path={MenuItemPath.default}      exact element={<HomeComponent />} />
         <Route path={MenuItemPath.home}         element={<HomeComponent />} />
 
-        <Route path={MenuItemPath.javaee}       element={<JavaeeComponent />} />
+        <Route path={MenuItemPath.java}         element={<JavaComponent />} />
         <Route path={MenuItemPath.pentaho}      element={<PentahoComponent />} />
         <Route path={MenuItemPath.oracle}       element={<OracleComponent />} />
         <Route path={MenuItemPath.tableau}      element={<TableauComponent />} />

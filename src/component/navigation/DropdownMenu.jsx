@@ -27,14 +27,14 @@ export default function DropdownMenu(){
           variant='outline'
         />
         <MenuList text-align="justify;">
-          <MenuItem as='a' href={MenuItemPath.home}>      {MenuItemText.home}     </MenuItem>
-          <MenuItem as='a' href={MenuItemPath.aws}>       {MenuItemText.aws}      </MenuItem>
-          <MenuItem as='a' href={MenuItemPath.javaee}>    {MenuItemText.javaee}   </MenuItem>
-          <MenuItem as='a' href={MenuItemPath.pentaho}>   {MenuItemText.pentaho}  </MenuItem>
-          <MenuItem as='a' href={MenuItemPath.oracle}>    {MenuItemText.oracle}   </MenuItem>
-          <MenuItem as='a' href={MenuItemPath.tableau}>   {MenuItemText.tableau}  </MenuItem>
-          <MenuItem as='a' href={MenuItemPath.python}>    {MenuItemText.python}   </MenuItem>
-          <MenuItem as='a' href={MenuItemPath.about}>     {MenuItemText.about}    </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.home}>      <pre>{MenuItemText.home}</pre>     </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.aws}>       <pre>{MenuItemText.aws}</pre>      </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.java}>      <pre>{MenuItemText.java}</pre>   </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.pentaho}>   <pre>{MenuItemText.pentaho}</pre>  </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.oracle}>    <pre>{MenuItemText.oracle}</pre>   </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.tableau}>   <pre>{MenuItemText.tableau}</pre>  </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.python}>    <pre>{MenuItemText.python}</pre>   </MenuItem>
+          <MenuItem as='a' href={MenuItemPath.about}>     <pre>{MenuItemText.about}</pre>    </MenuItem>
           <MenuDivider />
 
           <MenuItem>

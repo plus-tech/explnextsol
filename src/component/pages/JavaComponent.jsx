@@ -17,15 +17,16 @@ function JavaeeComponent() {
   return (
     <Box className="boxToplevelpage">
       <Heading as='h3' size='md'>
-        Java EE
+        Java - Spring
       </Heading>
       <br/>
       <Divider />
       <Text className="txtParagraph">
-        Java EE is the mostly used platform for enterprise applications. An application is made up
-        of components that communicate with each other as designed. A bunch of open source application development
-        frameworks come with Java EE. Spring is the most popular one among them. Here we take a quick tour of
-        the multi-layered architecture for web applications.
+        Java lanaguage is one of the top choices for enterprise applications.
+        A bunch of open source frameworks are available for building Java applications. Among them,
+        Spring is the most popular one. It provides rich features in data access, web, batch,
+        security, testing and etc.; and Spring Boot, coming with auto-configurations, makes development
+        easier and faster. Here we take a quick tour of the multi-layered architecture for web applications.
       </Text>
 
       <Heading as='h4' className="hdIntext" size='sm'>Multi-layered Architecture</Heading>

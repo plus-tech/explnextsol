@@ -83,3 +83,6 @@ Install Tableau Embedding API library. A Tableau viz is embedded in the app.
 
 ### `npm install axios`
 Install axios which provides access to REST APIs. A backend app was built on Beanstalk that published REST APIs; this frontend app calls them to persist data. The purpose is to try the architecture on Amazon Web Services. This is a legacy part. Neither the Beanstalk app nor the RDS is available as of now.
+
+### Backend App
+The backend app providing REST APIs is available in: [https://github.com/plus-tech/designsolend](https://github.com/plus-tech/designsolend)
